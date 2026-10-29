@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video2-zero-shot"
+version = "0.1.0"
+description = "Reproducible zero-shot Qwen2.5-VL video summarization baseline"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+inference = [
+  "torch==2.8.0",
+  "torchvision==0.23.0",
+  "transformers==4.57.1",
+  "accelerate>=1.2,<2",
+  "opencv-python-headless>=4.10,<5",
+  "numpy>=1.26,<3",
+  "Pillow>=10,<12",
+]
+
+[project.scripts]
+video2 = "video2.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
